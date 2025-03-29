@@ -14,7 +14,6 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 @AnonymousAllowed
 @PageTitle("Channel")
 @Route(value = "channel")
-@org.springframework.stereotype.Component
 class ChannelView extends VerticalLayout {
 
     private final TextField field;
@@ -23,7 +22,7 @@ class ChannelView extends VerticalLayout {
 
     ChannelView() {
         ChannelService service = new ChannelService();
-        
+
         field = new TextField();
         button = new SearchButton(false)
                 .withClickListener(event -> service.findOne(field.getValue()));
