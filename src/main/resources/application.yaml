@@ -3,3 +3,6 @@ spring:
     name: youtube-manager
 vaadin:
   launch-browser: true
+
+youtube:
+  api-key:
