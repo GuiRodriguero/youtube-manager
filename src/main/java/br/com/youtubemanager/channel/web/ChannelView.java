@@ -1,8 +1,7 @@
-package br.com.youtubemanager.channel.view;
+package br.com.youtubemanager.channel.web;
 
 import br.com.youtubemanager.core.vaadin.components.SearchButton;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -18,7 +17,8 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 class ChannelView extends VerticalLayout {
 
     private final TextField field;
-    private final Button button;
+
+    private final SearchButton button;
 
     ChannelView() {
         field = new TextField();
