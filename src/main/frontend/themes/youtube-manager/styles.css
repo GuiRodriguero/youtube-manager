@@ -1,0 +1,4 @@
+html {
+    --lumo-primary-color: #45ac01;
+    --vaadin-focus-ring-color: var(--lumo-primary-color);
+}
