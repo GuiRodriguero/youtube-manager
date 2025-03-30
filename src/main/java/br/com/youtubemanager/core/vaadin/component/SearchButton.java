@@ -1,4 +1,4 @@
-package br.com.youtubemanager.core.vaadin.components;
+package br.com.youtubemanager.core.vaadin.component;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
