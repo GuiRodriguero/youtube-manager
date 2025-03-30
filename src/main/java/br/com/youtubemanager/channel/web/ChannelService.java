@@ -1,5 +1,9 @@
 package br.com.youtubemanager.channel.web;
 
+import br.com.youtubemanager.channel.Channel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -10,12 +14,40 @@ class ChannelService {
     @Value("${youtube.api-key}")
     String apiKey;
 
-    public void findOne(String channelName) {
+    public Channel findOne(String channelName) {
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&forUsername=" + channelName + "&key=" + apiKey;
 //        String response = restTemplate.getForObject(url, String.class);
-        System.out.println(stubResponse());
+        return parseChannelResponse(stubResponse());
+    }
+
+    private Channel parseChannelResponse(String response) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        JsonNode rootNode;
+        try {
+            rootNode = objectMapper.readTree(response);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        JsonNode itemNode = rootNode.path("items").get(0);
+        JsonNode snippet = itemNode.path("snippet");
+        JsonNode statistics = itemNode.path("statistics");
+        JsonNode thumbnails = snippet.path("thumbnails").path("default");
+
+        return Channel.of(
+                snippet.path("title").asText(),
+                snippet.path("description").asText(),
+                snippet.path("publishedAt").asText(),
+                thumbnails.path("url").asText(),
+                snippet.path("localized").path("description").asText(),
+                snippet.path("country").asText(),
+                statistics.path("viewCount").asText(),
+                statistics.path("subscriberCount").asText(),
+                statistics.path("videoCount").asText()
+        );
     }
 
     private String stubResponse() {
@@ -79,4 +111,16 @@ class ChannelService {
                 """;
     }
 
+    private String stubNotFound() {
+        return """
+                {
+                  "kind" : "youtube#channelListResponse",
+                  "etag" : "RuuXzTIr0OoDqI4S0RU6n4FqKEM",
+                  "pageInfo" : {
+                    "totalResults" : 0,
+                    "resultsPerPage" : 5
+                  }
+                }
+                """;
+    }
 }
