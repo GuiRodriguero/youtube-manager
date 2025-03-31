@@ -46,11 +46,7 @@ class ChannelView extends VerticalLayout {
 
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setAlignItems(Alignment.CENTER);
-        horizontalLayout.add(channelTextInput(), new SearchButton(false)
-                .withClickListener(event -> {
-                    Channel channel = service.findOne(field.getValue());
-                    add(new ChannelCard(channel));
-                }));
+        horizontalLayout.add(channelTextInput(), button);
 
         layout.add(new H2("Search for a YouTube channel"));
         layout.add(horizontalLayout);
