@@ -3,6 +3,8 @@ package br.com.youtubemanager.channel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import static br.com.youtubemanager.core.DateUtils.formatDate;
+
 @Getter
 @AllArgsConstructor(staticName = "of")
 public class Channel {
@@ -24,5 +26,9 @@ public class Channel {
     private String subscriberCount;
 
     private String videoCount;
+
+    public String getFormattedPublishedAt() {
+        return formatDate(this.publishedAt);
+    }
 
 }
