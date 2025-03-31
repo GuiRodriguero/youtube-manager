@@ -1,31 +1,49 @@
 package br.com.youtubemanager.channel.web.component;
 
 import br.com.youtubemanager.channel.Channel;
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.Tag;
+import br.com.youtubemanager.core.vaadin.component.TextOutputWithIcon;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-@Tag(value = "ym-channel-card")
-public class ChannelCard extends Component {
+public class ChannelCard extends VerticalLayout {
 
     public ChannelCard(Channel channel) {
+        super();
+
+        this.setSizeFull();
+        this.setAlignItems(Alignment.CENTER);
+        this.setJustifyContentMode(JustifyContentMode.CENTER);
+        this.add(getCard(channel));
+    }
+
+    private Div getCard(Channel channel) {
         Div card = new Div();
         card.setWidth("25%");
         card.addClassName("channel-card");
-        card.add(channelAvatar(channel));
+
+        HorizontalLayout layout = new HorizontalLayout();
+        layout.setWidthFull();
+        layout.setAlignItems(Alignment.START);
+        layout.setJustifyContentMode(JustifyContentMode.BETWEEN);
+
+        layout.add(channelAvatar(channel));
+        layout.add(new TextOutputWithIcon(VaadinIcon.CALENDAR.create(), channel.getFormattedPublishedAt(), "Channel creation date"));
+
+        card.add(layout);
         card.add(channel.getDescription());
-        card.add(channel.getPublishedAt());
+
+        return card;
     }
 
     private HorizontalLayout channelAvatar(Channel channel) {
         HorizontalLayout layout = new HorizontalLayout();
         layout.addClassName("avatar-layout");
-        layout.setAlignItems(FlexComponent.Alignment.START);
-        layout.setJustifyContentMode(FlexComponent.JustifyContentMode.START);
+        layout.setAlignItems(Alignment.START);
+        layout.setJustifyContentMode(JustifyContentMode.START);
         layout.add(new Avatar(channel.getTitle(), channel.getDefaultThumbnailUrl()));
         layout.add(new H3(channel.getTitle()));
         return layout;
