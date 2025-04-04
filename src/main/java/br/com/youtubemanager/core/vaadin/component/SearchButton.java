@@ -9,14 +9,15 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 
 public class SearchButton extends Button {
 
-    public SearchButton(boolean isEnabled) {
-        super("Search", new Icon(VaadinIcon.SEARCH));
-        this.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        this.setEnabled(isEnabled);
-    }
+	public SearchButton(boolean isEnabled) {
+		super("Search", new Icon(VaadinIcon.SEARCH));
+		this.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+		this.setEnabled(isEnabled);
+	}
 
-    public SearchButton withClickListener(ComponentEventListener<ClickEvent<Button>> listener) {
-        this.addClickListener(listener);
-        return this;
-    }
+	public SearchButton withClickListener(ComponentEventListener<ClickEvent<Button>> listener) {
+		this.addClickListener(listener);
+		return this;
+	}
+
 }

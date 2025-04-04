@@ -19,49 +19,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route(value = "channel")
 class ChannelView extends VerticalLayout {
 
-    private final TextField field;
+	private final TextField field;
 
-    private final SearchButton button;
+	private final SearchButton button;
 
-    @Autowired
-    private ChannelService service;
+	@Autowired
+	private ChannelService service;
 
-    ChannelView() {
-        field = new TextField();
-        button = new SearchButton(false)
-                .withClickListener(event -> {
-                    Channel channel = service.findOne(field.getValue());
-                    add(new ChannelCard(channel));
-                });
+	ChannelView() {
+		field = new TextField();
+		button = new SearchButton(false).withClickListener(event -> {
+			Channel channel = service.findOne(field.getValue());
+			add(new ChannelCard(channel));
+		});
 
-        add(channelSearchComponents());
-    }
+		add(channelSearchComponents());
+	}
 
-    private VerticalLayout channelSearchComponents() {
-        VerticalLayout layout = new VerticalLayout();
-        layout.setSizeFull();
-        layout.setAlignItems(Alignment.CENTER);
-        layout.setJustifyContentMode(JustifyContentMode.CENTER);
+	private VerticalLayout channelSearchComponents() {
+		VerticalLayout layout = new VerticalLayout();
+		layout.setSizeFull();
+		layout.setAlignItems(Alignment.CENTER);
+		layout.setJustifyContentMode(JustifyContentMode.CENTER);
 
-        HorizontalLayout horizontalLayout = new HorizontalLayout();
-        horizontalLayout.setAlignItems(Alignment.CENTER);
-        horizontalLayout.add(channelTextInput(), button);
+		HorizontalLayout horizontalLayout = new HorizontalLayout();
+		horizontalLayout.setAlignItems(Alignment.CENTER);
+		horizontalLayout.add(channelTextInput(), button);
 
-        layout.add(new H2("Search for a YouTube channel"));
-        layout.add(horizontalLayout);
+		layout.add(new H2("Search for a YouTube channel"));
+		layout.add(horizontalLayout);
 
-        return layout;
-    }
+		return layout;
+	}
 
-    private Component channelTextInput() {
-        field.setClassName("channel-text-input");
-        field.setMaxLength(30);
-        field.setWidth("300px");
-        field.setI18n(new TextField.TextFieldI18n()
-                .setMaxLengthErrorMessage("Maximum length is 30 characters"));
-        field.setValueChangeMode(ValueChangeMode.EAGER);
-        field.addValueChangeListener(event -> button.setEnabled(!event.getValue().isEmpty()));
-        return field;
-    }
+	private Component channelTextInput() {
+		field.setClassName("channel-text-input");
+		field.setMaxLength(30);
+		field.setWidth("300px");
+		field.setI18n(new TextField.TextFieldI18n().setMaxLengthErrorMessage("Maximum length is 30 characters"));
+		field.setValueChangeMode(ValueChangeMode.EAGER);
+		field.addValueChangeListener(event -> button.setEnabled(!event.getValue().isEmpty()));
+		return field;
+	}
 
 }
