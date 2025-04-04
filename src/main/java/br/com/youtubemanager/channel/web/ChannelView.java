@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @AnonymousAllowed
 @PageTitle("Channel")
 @Route(value = "channel")
-@org.springframework.stereotype.Component
 class ChannelView extends VerticalLayout {
 
     private final TextField field;
