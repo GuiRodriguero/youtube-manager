@@ -1,9 +1,8 @@
-import {a2 as v, b as d, D as m, P as b, q as g, r as u, s as f, z as p} from "./copilot-C13q4MqC.js";
-import {r as c} from "./state-9zf3mz-0.js";
-import {e as k, m as y} from "./overlay-monkeypatch-CBuytWs_.js";
-import {B as w} from "./base-panel-PAT65VLJ.js";
-import {i as x} from "./icons-BuP5__m2.js";
-
+import { z as p, b as d, r as u, a2 as v, s as f, P as b, D as m, q as g } from "./copilot-C13q4MqC.js";
+import { r as c } from "./state-9zf3mz-0.js";
+import { m as y, e as k } from "./overlay-monkeypatch-CBuytWs_.js";
+import { B as w } from "./base-panel-PAT65VLJ.js";
+import { i as x } from "./icons-BuP5__m2.js";
 const $ = "copilot-feedback-panel{display:flex;flex-direction:column;font:var(--font-xsmall);gap:var(--space-200);padding:var(--space-150)}copilot-feedback-panel>p{margin:0}copilot-feedback-panel .dialog-footer{display:flex;gap:var(--space-100)}copilot-feedback-panel :is(vaadin-select,vaadin-text-area,vaadin-text-field){padding:0}copilot-feedback-panel :is(vaadin-select,vaadin-text-area,vaadin-text-field)::part(input-field),copilot-feedback-panel vaadin-select-value-button{padding:0}copilot-feedback-panel vaadin-select::part(toggle-button){align-items:center;display:flex;height:var(--size-m);justify-content:center;width:var(--size-m)}copilot-feedback-panel vaadin-text-area textarea{line-height:var(--line-height-1);padding:calc((var(--size-m) - var(--line-height-1)) / 2) var(--space-100)}copilot-feedback-panel vaadin-text-area:hover::part(input-field){background:none}copilot-feedback-panel vaadin-text-field input{padding:0 var(--space-100)}copilot-feedback-panel>*::part(label){font-weight:var(--font-weight-medium);line-height:var(--line-height-1);margin:0;padding:0 var(--space-150) var(--space-50) 0}copilot-feedback-panel>*::part(helper-text){line-height:var(--line-height-1);margin:0}";
 var A = Object.defineProperty, P = Object.getOwnPropertyDescriptor, o = (e, t, n, s) => {
   for (var i = s > 1 ? void 0 : s ? P(t, n) : t, l = e.length - 1, r; l >= 0; l--)

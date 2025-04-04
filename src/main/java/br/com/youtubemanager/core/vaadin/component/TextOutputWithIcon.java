@@ -15,6 +15,7 @@ public class TextOutputWithIcon extends HorizontalLayout {
         this.setAlignItems(Alignment.CENTER);
         this.setJustifyContentMode(JustifyContentMode.CENTER);
         icon.getElement().setProperty("title", title);
+        icon.setSize("28px");
         this.add(icon);
         this.add(new H6(text));
     }

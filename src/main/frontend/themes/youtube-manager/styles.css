@@ -13,3 +13,11 @@ html {
 .avatar-layout {
     margin-bottom: 20px;
 }
+
+.channel-footer {
+    margin-top: 20px;
+}
+
+.channel-title {
+    color: blue
+}

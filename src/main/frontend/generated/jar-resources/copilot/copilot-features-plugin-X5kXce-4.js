@@ -1,7 +1,6 @@
-import {a2 as g, ai as u, j as d, Q as c, q as h, R as f, z as r} from "./copilot-C13q4MqC.js";
-import {B as m} from "./base-panel-PAT65VLJ.js";
-import {i as v} from "./icons-BuP5__m2.js";
-
+import { z as r, j as d, a2 as g, Q as c, R as f, ai as u, q as h } from "./copilot-C13q4MqC.js";
+import { B as m } from "./base-panel-PAT65VLJ.js";
+import { i as v } from "./icons-BuP5__m2.js";
 const b = "copilot-features-panel{padding:var(--space-100);font:var(--font-xsmall);display:grid;grid-template-columns:auto 1fr;gap:var(--space-50);height:auto}copilot-features-panel a{display:flex;align-items:center;gap:var(--space-50);white-space:nowrap}copilot-features-panel a svg{height:12px;width:12px;min-height:12px;min-width:12px}";
 var w = Object.getOwnPropertyDescriptor, $ = (e, a, t, n) => {
   for (var o = n > 1 ? void 0 : n ? w(a, t) : a, s = e.length - 1, i; s >= 0; s--)
