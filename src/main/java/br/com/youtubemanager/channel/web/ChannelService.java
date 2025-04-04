@@ -39,6 +39,7 @@ class ChannelService {
 
         return Channel.of(
                 snippet.path("title").asText(),
+                snippet.path("customUrl").asText(),
                 snippet.path("description").asText(),
                 snippet.path("publishedAt").asText(),
                 thumbnails.path("url").asText(),

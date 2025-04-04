@@ -11,6 +11,8 @@ public class Channel {
 
     private String title;
 
+    private String customUrl;
+
     private String description;
 
     private String publishedAt;
@@ -31,4 +33,7 @@ public class Channel {
         return formatDate(this.publishedAt);
     }
 
+    public String getFormattedCustomUrl() {
+        return this.customUrl.substring(1);
+    }
 }

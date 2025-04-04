@@ -50,7 +50,7 @@ public class ChannelCard extends VerticalLayout {
         H3 channelTitle = new H3(channel.getTitle());
         channelTitle.setClassName("channel-title");
 
-        layout.add(new Anchor("https://www.youtube.com/" + channel.getTitle(), channelTitle));
+        layout.add(new Anchor("https://www.youtube.com/" + channel.getFormattedCustomUrl(), channelTitle));
         return layout;
     }
 
