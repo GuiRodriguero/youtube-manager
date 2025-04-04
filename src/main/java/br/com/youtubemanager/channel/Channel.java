@@ -9,31 +9,32 @@ import static br.com.youtubemanager.core.DateUtils.formatDate;
 @AllArgsConstructor(staticName = "of")
 public class Channel {
 
-    private String title;
+	private String title;
 
-    private String customUrl;
+	private String customUrl;
 
-    private String description;
+	private String description;
 
-    private String publishedAt;
+	private String publishedAt;
 
-    private String defaultThumbnailUrl;
+	private String defaultThumbnailUrl;
 
-    private String localizedDescription;
+	private String localizedDescription;
 
-    private String country;
+	private String country;
 
-    private String viewCount;
+	private String viewCount;
 
-    private String subscriberCount;
+	private String subscriberCount;
 
-    private String videoCount;
+	private String videoCount;
 
-    public String getFormattedPublishedAt() {
-        return formatDate(this.publishedAt);
-    }
+	public String getFormattedPublishedAt() {
+		return formatDate(this.publishedAt);
+	}
 
-    public String getFormattedCustomUrl() {
-        return this.customUrl.substring(1);
-    }
+	public String getFormattedCustomUrl() {
+		return this.customUrl.substring(1);
+	}
+
 }

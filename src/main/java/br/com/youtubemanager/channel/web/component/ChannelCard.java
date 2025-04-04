@@ -12,58 +12,59 @@ import com.vaadin.flow.theme.lumo.LumoIcon;
 
 public class ChannelCard extends VerticalLayout {
 
-    public ChannelCard(Channel channel) {
-        super();
+	public ChannelCard(Channel channel) {
+		super();
 
-        this.setSizeFull();
-        this.setAlignItems(Alignment.CENTER);
-        this.setJustifyContentMode(JustifyContentMode.CENTER);
-        this.add(getCard(channel));
-    }
+		this.setSizeFull();
+		this.setAlignItems(Alignment.CENTER);
+		this.setJustifyContentMode(JustifyContentMode.CENTER);
+		this.add(getCard(channel));
+	}
 
-    private Div getCard(Channel channel) {
-        Div card = new Div();
-        card.setWidth("35%");
-        card.addClassName("channel-card");
+	private Div getCard(Channel channel) {
+		Div card = new Div();
+		card.setWidth("35%");
+		card.addClassName("channel-card");
 
-        HorizontalLayout layout = new HorizontalLayout();
-        layout.setWidthFull();
-        layout.setAlignItems(Alignment.START);
-        layout.setJustifyContentMode(JustifyContentMode.BETWEEN);
+		HorizontalLayout layout = new HorizontalLayout();
+		layout.setWidthFull();
+		layout.setAlignItems(Alignment.START);
+		layout.setJustifyContentMode(JustifyContentMode.BETWEEN);
 
-        layout.add(channelAvatar(channel));
-        layout.add(new TextOutputWithIcon(LumoIcon.CALENDAR.create(), channel.getFormattedPublishedAt(), "Channel creation date"));
+		layout.add(channelAvatar(channel));
+		layout.add(new TextOutputWithIcon(LumoIcon.CALENDAR.create(), channel.getFormattedPublishedAt(),
+				"Channel creation date"));
 
-        card.add(layout);
-        card.add(channel.getDescription());
-        card.add(footer(channel));
-        return card;
-    }
+		card.add(layout);
+		card.add(channel.getDescription());
+		card.add(footer(channel));
+		return card;
+	}
 
-    private HorizontalLayout channelAvatar(Channel channel) {
-        HorizontalLayout layout = new HorizontalLayout();
-        layout.addClassName("avatar-layout");
-        layout.setAlignItems(Alignment.START);
-        layout.setJustifyContentMode(JustifyContentMode.START);
-        layout.add(new Avatar(channel.getTitle(), channel.getDefaultThumbnailUrl()));
+	private HorizontalLayout channelAvatar(Channel channel) {
+		HorizontalLayout layout = new HorizontalLayout();
+		layout.addClassName("avatar-layout");
+		layout.setAlignItems(Alignment.START);
+		layout.setJustifyContentMode(JustifyContentMode.START);
+		layout.add(new Avatar(channel.getTitle(), channel.getDefaultThumbnailUrl()));
 
-        H3 channelTitle = new H3(channel.getTitle());
-        channelTitle.setClassName("channel-title");
+		H3 channelTitle = new H3(channel.getTitle());
+		channelTitle.setClassName("channel-title");
 
-        layout.add(new Anchor("https://www.youtube.com/" + channel.getFormattedCustomUrl(), channelTitle));
-        return layout;
-    }
+		layout.add(new Anchor("https://www.youtube.com/" + channel.getFormattedCustomUrl(), channelTitle));
+		return layout;
+	}
 
-    private HorizontalLayout footer(Channel channel) {
-        HorizontalLayout layout = new HorizontalLayout();
-        layout.addClassName("channel-footer");
-        layout.setWidthFull();
-        layout.setAlignItems(Alignment.CENTER);
-        layout.setJustifyContentMode(JustifyContentMode.BETWEEN);
-        layout.add(new TextOutputWithIcon(LumoIcon.PLAY.create(), channel.getVideoCount(), "Videos"));
-        layout.add(new TextOutputWithIcon(LumoIcon.USER.create(), channel.getSubscriberCount(), "Subscribers"));
-        layout.add(new TextOutputWithIcon(LumoIcon.EYE.create(), channel.getViewCount(), "Views"));
-        return layout;
-    }
+	private HorizontalLayout footer(Channel channel) {
+		HorizontalLayout layout = new HorizontalLayout();
+		layout.addClassName("channel-footer");
+		layout.setWidthFull();
+		layout.setAlignItems(Alignment.CENTER);
+		layout.setJustifyContentMode(JustifyContentMode.BETWEEN);
+		layout.add(new TextOutputWithIcon(LumoIcon.PLAY.create(), channel.getVideoCount(), "Videos"));
+		layout.add(new TextOutputWithIcon(LumoIcon.USER.create(), channel.getSubscriberCount(), "Subscribers"));
+		layout.add(new TextOutputWithIcon(LumoIcon.EYE.create(), channel.getViewCount(), "Views"));
+		return layout;
+	}
 
 }

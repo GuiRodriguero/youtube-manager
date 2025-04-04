@@ -6,18 +6,18 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class TextOutputWithIcon extends HorizontalLayout {
 
-    public TextOutputWithIcon(Icon icon, String text) {
-        this(icon, text, "");
-    }
+	public TextOutputWithIcon(Icon icon, String text) {
+		this(icon, text, "");
+	}
 
-    public TextOutputWithIcon(Icon icon, String text, String title) {
-        super();
-        this.setAlignItems(Alignment.CENTER);
-        this.setJustifyContentMode(JustifyContentMode.CENTER);
-        icon.getElement().setProperty("title", title);
-        icon.setSize("28px");
-        this.add(icon);
-        this.add(new H6(text));
-    }
+	public TextOutputWithIcon(Icon icon, String text, String title) {
+		super();
+		this.setAlignItems(Alignment.CENTER);
+		this.setJustifyContentMode(JustifyContentMode.CENTER);
+		icon.getElement().setProperty("title", title);
+		icon.setSize("28px");
+		this.add(icon);
+		this.add(new H6(text));
+	}
 
 }
