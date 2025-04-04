@@ -3,6 +3,7 @@ package br.com.youtubemanager.channel.web.component;
 import br.com.youtubemanager.channel.Channel;
 import br.com.youtubemanager.core.vaadin.component.TextOutputWithIcon;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -45,7 +46,11 @@ public class ChannelCard extends VerticalLayout {
         layout.setAlignItems(Alignment.START);
         layout.setJustifyContentMode(JustifyContentMode.START);
         layout.add(new Avatar(channel.getTitle(), channel.getDefaultThumbnailUrl()));
-        layout.add(new H3(channel.getTitle()));
+
+        H3 channelTitle = new H3(channel.getTitle());
+        channelTitle.setClassName("channel-title");
+
+        layout.add(new Anchor("https://www.youtube.com/" + channel.getTitle(), channelTitle));
         return layout;
     }
 
