@@ -11,7 +11,7 @@ public class DateUtils {
 			return "";
 		}
 		try {
-			DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
+			DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 			DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDateTime dateTime = LocalDateTime.parse(date, inputFormatter);
 			return dateTime.format(outputFormatter);
