@@ -23,7 +23,7 @@ public class ChannelCard extends VerticalLayout {
 
 	private Div getCard(Channel channel) {
 		Div card = new Div();
-		card.setWidth("35%");
+		card.setWidth("30%");
 		card.addClassName("channel-card");
 
 		HorizontalLayout layout = new HorizontalLayout();
