@@ -1,6 +1,6 @@
 package br.com.youtubemanager.channel.web.component;
 
-import br.com.youtubemanager.channel.Channel;
+import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.core.vaadin.component.TextOutputWithIcon;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.Anchor;
@@ -12,7 +12,7 @@ import com.vaadin.flow.theme.lumo.LumoIcon;
 
 public class ChannelCard extends VerticalLayout {
 
-	public ChannelCard(Channel channel) {
+	public ChannelCard(ChannelDTO channel) {
 		super();
 
 		this.setSizeFull();
@@ -21,7 +21,7 @@ public class ChannelCard extends VerticalLayout {
 		this.add(getCard(channel));
 	}
 
-	private Div getCard(Channel channel) {
+	private Div getCard(ChannelDTO channel) {
 		Div card = new Div();
 		card.setWidth("30%");
 		card.addClassName("channel-card");
@@ -41,7 +41,7 @@ public class ChannelCard extends VerticalLayout {
 		return card;
 	}
 
-	private HorizontalLayout channelAvatar(Channel channel) {
+	private HorizontalLayout channelAvatar(ChannelDTO channel) {
 		HorizontalLayout layout = new HorizontalLayout();
 		layout.addClassName("avatar-layout");
 		layout.setAlignItems(Alignment.START);
@@ -55,7 +55,7 @@ public class ChannelCard extends VerticalLayout {
 		return layout;
 	}
 
-	private HorizontalLayout footer(Channel channel) {
+	private HorizontalLayout footer(ChannelDTO channel) {
 		HorizontalLayout layout = new HorizontalLayout();
 		layout.addClassName("channel-footer");
 		layout.setWidthFull();

@@ -7,7 +7,7 @@ import static br.com.youtubemanager.core.DateUtils.formatDate;
 
 @Getter
 @AllArgsConstructor(staticName = "of")
-public class Channel {
+public class ChannelDTO {
 
 	private String title;
 
