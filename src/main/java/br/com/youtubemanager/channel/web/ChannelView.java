@@ -1,6 +1,6 @@
 package br.com.youtubemanager.channel.web;
 
-import br.com.youtubemanager.channel.Channel;
+import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.channel.web.component.ChannelCard;
 import br.com.youtubemanager.core.vaadin.component.SearchButton;
 import com.vaadin.flow.component.Component;
@@ -29,7 +29,7 @@ class ChannelView extends VerticalLayout {
 	ChannelView() {
 		field = new TextField();
 		button = new SearchButton(false).withClickListener(event -> {
-			Channel channel = service.findOne(field.getValue());
+			ChannelDTO channel = service.findOne(field.getValue());
 			add(new ChannelCard(channel));
 		});
 
