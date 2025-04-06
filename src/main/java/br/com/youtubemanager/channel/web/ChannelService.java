@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
+import static br.com.youtubemanager.core.NumberUtils.formatNumber;
 import static br.com.youtubemanager.core.YoutubeUtils.getYouTubeService;
 
 @Service
@@ -55,9 +56,9 @@ class ChannelService {
 				thumbnail.getUrl(),
 				snippet.getLocalized().getDescription(),
 				snippet.getCountry(),
-				statistics.getViewCount().toString(),
-				statistics.getSubscriberCount().toString(),
-				statistics.getVideoCount().toString()
+				formatNumber(statistics.getViewCount()),
+				formatNumber(statistics.getSubscriberCount()),
+				formatNumber(statistics.getVideoCount())
 		);
 	}
 
