@@ -6,9 +6,9 @@ import java.util.Locale;
 
 public class NumberUtils {
 
-    public static String formatNumber(BigInteger number) {
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
-        return numberFormat.format(number);
-    }
+	public static String formatNumber(BigInteger number) {
+		NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
+		return numberFormat.format(number);
+	}
 
 }
