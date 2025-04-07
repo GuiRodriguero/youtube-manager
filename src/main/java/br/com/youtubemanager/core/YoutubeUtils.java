@@ -9,14 +9,16 @@ import java.security.GeneralSecurityException;
 
 public class YoutubeUtils {
 
-    public static YouTube getYouTubeService() {
-        try {
-            return new YouTube.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), null)
-                    .setApplicationName("youtube-manager")
-                    .build();
-        } catch (GeneralSecurityException | IOException e) {
-            throw new RuntimeException("Failed to create YouTube service", e);
-        }
-    }
+	public static YouTube getYouTubeService() {
+		try {
+			return new YouTube.Builder(GoogleNetHttpTransport.newTrustedTransport(),
+					JacksonFactory.getDefaultInstance(), null)
+				.setApplicationName("youtube-manager")
+				.build();
+		}
+		catch (GeneralSecurityException | IOException e) {
+			throw new RuntimeException("Failed to create YouTube service", e);
+		}
+	}
 
 }

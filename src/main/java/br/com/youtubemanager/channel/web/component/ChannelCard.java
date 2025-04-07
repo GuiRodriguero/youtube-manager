@@ -3,6 +3,7 @@ package br.com.youtubemanager.channel.web.component;
 import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.core.vaadin.component.TextOutputWithIcon;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
@@ -10,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.theme.lumo.LumoIcon;
 
+@CssImport("./themes/youtube-manager/component-styles/channel-card.css")
 public class ChannelCard extends VerticalLayout {
 
 	public ChannelCard(ChannelDTO channel) {

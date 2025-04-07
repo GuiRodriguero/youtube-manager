@@ -26,9 +26,9 @@ class ChannelService {
 	public ChannelDTO findOne(String channelName) {
 		try {
 			YouTube.Channels.List request = getYouTubeService().channels()
-					.list("snippet,contentDetails,statistics")
-					.setForUsername(channelName)
-					.setKey(apiKey);
+				.list("snippet,contentDetails,statistics")
+				.setForUsername(channelName)
+				.setKey(apiKey);
 
 			ChannelListResponse response = request.execute();
 			List<com.google.api.services.youtube.model.Channel> channels = response.getItems();
@@ -38,7 +38,8 @@ class ChannelService {
 			}
 
 			return convertToMyChannel(channels.getFirst());
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			throw new RuntimeException("Failed to get channel information", e);
 		}
 	}
@@ -48,18 +49,10 @@ class ChannelService {
 		ChannelStatistics statistics = youtubeChannel.getStatistics();
 		Thumbnail thumbnail = snippet.getThumbnails().getDefault();
 
-		return ChannelDTO.of(
-				snippet.getTitle(),
-				snippet.getCustomUrl(),
-				snippet.getDescription(),
-				snippet.getPublishedAt().toString(),
-				thumbnail.getUrl(),
-				snippet.getLocalized().getDescription(),
-				snippet.getCountry(),
-				formatNumber(statistics.getViewCount()),
-				formatNumber(statistics.getSubscriberCount()),
-				formatNumber(statistics.getVideoCount())
-		);
+		return ChannelDTO.of(snippet.getTitle(), snippet.getCustomUrl(), snippet.getDescription(),
+				snippet.getPublishedAt().toString(), thumbnail.getUrl(), snippet.getLocalized().getDescription(),
+				snippet.getCountry(), formatNumber(statistics.getViewCount()),
+				formatNumber(statistics.getSubscriberCount()), formatNumber(statistics.getVideoCount()));
 	}
 
 }
