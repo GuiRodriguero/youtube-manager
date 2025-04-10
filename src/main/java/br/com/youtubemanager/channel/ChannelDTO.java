@@ -1,9 +1,14 @@
 package br.com.youtubemanager.channel;
 
+import com.google.api.services.youtube.model.Channel;
+import com.google.api.services.youtube.model.ChannelSnippet;
+import com.google.api.services.youtube.model.ChannelStatistics;
+import com.google.api.services.youtube.model.Thumbnail;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import static br.com.youtubemanager.core.DateUtils.formatDate;
+import static br.com.youtubemanager.core.NumberUtils.formatNumber;
 
 @Getter
 @AllArgsConstructor(staticName = "of")
@@ -35,6 +40,17 @@ public class ChannelDTO {
 
 	public String getFormattedCustomUrl() {
 		return this.customUrl.substring(1);
+	}
+
+	public static ChannelDTO of(Channel channel) {
+		ChannelSnippet snippet = channel.getSnippet();
+		ChannelStatistics statistics = channel.getStatistics();
+		Thumbnail thumbnail = snippet.getThumbnails().getDefault();
+
+		return ChannelDTO.of(snippet.getTitle(), snippet.getCustomUrl(), snippet.getDescription(),
+				snippet.getPublishedAt().toString(), thumbnail.getUrl(), snippet.getLocalized().getDescription(),
+				snippet.getCountry(), formatNumber(statistics.getViewCount()),
+				formatNumber(statistics.getSubscriberCount()), formatNumber(statistics.getVideoCount()));
 	}
 
 }
