@@ -1,10 +1,13 @@
 package br.com.youtubemanager.channel.web;
 
 import br.com.youtubemanager.channel.ChannelDTO;
+import br.com.youtubemanager.channel.ChannelNotFoundException;
 import br.com.youtubemanager.channel.web.component.ChannelCard;
+import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
 import br.com.youtubemanager.core.vaadin.component.SearchButton;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -13,6 +16,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
 
 @AnonymousAllowed
 @PageTitle("Channel")
@@ -29,10 +34,17 @@ class ChannelView extends VerticalLayout {
 	ChannelView() {
 		field = new TextField();
 		button = new SearchButton(false).withClickListener(event -> {
-			ChannelDTO channel = service.findOne(field.getValue());
-			add(new ChannelCard(channel));
+			try {
+				ChannelDTO channel = service.findOne(field.getValue());
+				add(new ChannelCard(channel));
+			}
+			catch (ChannelNotFoundException e) {
+				YouTubeNotification.show(e.getMessage(), NotificationVariant.LUMO_CONTRAST);
+			}
+			catch (IOException e) {
+				YouTubeNotification.show("Error on fetching data from YouTube", NotificationVariant.LUMO_ERROR);
+			}
 		});
-
 		add(channelSearchComponents());
 	}
 

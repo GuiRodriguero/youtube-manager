@@ -17,23 +17,18 @@ class ChannelService {
 
 	private final YouTube youtube;
 
-	public ChannelDTO findOne(String channelName) {
-		try {
-			List<Channel> channels = youtube.channels()
-				.list("snippet,contentDetails,statistics")
-				.setForUsername(channelName)
-				.execute()
-				.getItems();
+	public ChannelDTO findOne(String channelName) throws ChannelNotFoundException, IOException {
+		List<Channel> channels = youtube.channels()
+			.list("snippet,contentDetails,statistics")
+			.setForUsername(channelName)
+			.execute()
+			.getItems();
 
-			if (CollectionUtils.isEmpty(channels)) {
-				throw new ChannelNotFoundException("Channel not found");
-			}
+		if (CollectionUtils.isEmpty(channels)) {
+			throw new ChannelNotFoundException("Channel not found");
+		}
 
-			return ChannelDTO.of(channels.getFirst());
-		}
-		catch (IOException e) {
-			throw new RuntimeException("Failed to get channel information", e);
-		}
+		return ChannelDTO.of(channels.getFirst());
 	}
 
 }
