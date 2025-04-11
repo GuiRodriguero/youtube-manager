@@ -15,20 +15,20 @@ import java.util.List;
 @AllArgsConstructor
 class ChannelService {
 
-    private final YouTube youtube;
+	private final YouTube youtube;
 
-    public ChannelDTO findOne(String channelName) throws ChannelNotFoundException, IOException {
-        List<Channel> channels = youtube.channels()
-                .list("snippet,contentDetails,statistics")
-                .setForUsername(channelName)
-                .execute()
-                .getItems();
+	public ChannelDTO findOne(String channelName) throws ChannelNotFoundException, IOException {
+		List<Channel> channels = youtube.channels()
+			.list("snippet,contentDetails,statistics")
+			.setForUsername(channelName)
+			.execute()
+			.getItems();
 
-        if (CollectionUtils.isEmpty(channels)) {
-            throw new ChannelNotFoundException("Channel not found");
-        }
+		if (CollectionUtils.isEmpty(channels)) {
+			throw new ChannelNotFoundException("Channel not found");
+		}
 
-        return ChannelDTO.of(channels.getFirst());
-    }
+		return ChannelDTO.of(channels.getFirst());
+	}
 
 }

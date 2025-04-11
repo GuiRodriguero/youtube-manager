@@ -37,9 +37,11 @@ class ChannelView extends VerticalLayout {
 			try {
 				ChannelDTO channel = service.findOne(field.getValue());
 				add(new ChannelCard(channel));
-			} catch (ChannelNotFoundException e) {
+			}
+			catch (ChannelNotFoundException e) {
 				YouTubeNotification.show(e.getMessage(), NotificationVariant.LUMO_CONTRAST);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				YouTubeNotification.show("Error on fetching data from YouTube", NotificationVariant.LUMO_ERROR);
 			}
 		});

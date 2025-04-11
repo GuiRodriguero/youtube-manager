@@ -7,9 +7,9 @@ import static com.vaadin.flow.component.notification.Notification.Position.MIDDL
 
 public class YouTubeNotification {
 
-    public static void show(String errorMessage, NotificationVariant theme) {
-        Notification errorNotification = Notification.show(errorMessage, 3000, MIDDLE);
-        errorNotification.addThemeVariants(theme);
-    }
+	public static void show(String errorMessage, NotificationVariant theme) {
+		Notification errorNotification = Notification.show(errorMessage, 3000, MIDDLE);
+		errorNotification.addThemeVariants(theme);
+	}
 
 }
