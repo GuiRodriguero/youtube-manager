@@ -3,29 +3,25 @@ package br.com.youtubemanager.channel.web;
 import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.channel.ChannelNotFoundException;
 import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.*;
+import com.google.api.services.youtube.model.Channel;
+import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 
-import static br.com.youtubemanager.core.NumberUtils.formatNumber;
-import static br.com.youtubemanager.core.YoutubeUtils.getYouTubeService;
-
 @Service
+@AllArgsConstructor
 class ChannelService {
 
-	@Value("${youtube.api-key}")
-	String apiKey;
+	private final YouTube youtube;
 
 	public ChannelDTO findOne(String channelName) {
 		try {
-			List<Channel> channels = getYouTubeService().channels()
+			List<Channel> channels = youtube.channels()
 				.list("snippet,contentDetails,statistics")
 				.setForUsername(channelName)
-				.setKey(apiKey)
 				.execute()
 				.getItems();
 
