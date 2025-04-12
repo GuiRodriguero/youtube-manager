@@ -8,11 +8,12 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.theme.lumo.LumoIcon;
+import lombok.AllArgsConstructor;
 
-import static com.vaadin.flow.component.notification.Notification.Position.MIDDLE;
 import static com.vaadin.flow.component.notification.Notification.Position.TOP_END;
+import static lombok.AccessLevel.PRIVATE;
 
+@AllArgsConstructor(access = PRIVATE)
 public class YouTubeNotification {
 
 	public static void show(String message, NotificationVariant theme) {
