@@ -3,8 +3,8 @@ package br.com.youtubemanager.channel.web;
 import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.channel.ChannelNotFoundException;
 import br.com.youtubemanager.channel.web.component.ChannelCard;
-import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
 import br.com.youtubemanager.core.vaadin.component.SearchButton;
+import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.notification.NotificationVariant;
@@ -28,6 +28,8 @@ class ChannelView extends VerticalLayout {
 
 	private final SearchButton button;
 
+	private ChannelCard channelCard;
+
 	@Autowired
 	private ChannelService service;
 
@@ -36,7 +38,11 @@ class ChannelView extends VerticalLayout {
 		button = new SearchButton(false).withClickListener(event -> {
 			try {
 				ChannelDTO channel = service.findOne(field.getValue());
-				add(new ChannelCard(channel));
+				if (channelCard != null) {
+					remove(channelCard);
+				}
+				channelCard = new ChannelCard(channel);
+				add(channelCard);
 			}
 			catch (ChannelNotFoundException e) {
 				YouTubeNotification.show(e.getMessage(), NotificationVariant.LUMO_CONTRAST);
