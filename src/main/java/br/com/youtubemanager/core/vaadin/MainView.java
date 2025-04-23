@@ -11,10 +11,11 @@ import com.vaadin.flow.router.RouteAlias;
 @RouteAlias(value = "home", layout = MainLayout.class)
 class MainView extends VerticalLayout {
 
-    MainView() {
-        add(new H1("Welcome to YouTube Manager"));
-        setSizeFull();
-        setJustifyContentMode(JustifyContentMode.CENTER);
-        setAlignItems(Alignment.CENTER);
-    }
+	MainView() {
+		add(new H1("Welcome to YouTube Manager"));
+		setSizeFull();
+		setJustifyContentMode(JustifyContentMode.CENTER);
+		setAlignItems(Alignment.CENTER);
+	}
+
 }
