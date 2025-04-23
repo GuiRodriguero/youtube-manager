@@ -3,6 +3,7 @@ package br.com.youtubemanager.channel.web;
 import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.channel.ChannelNotFoundException;
 import br.com.youtubemanager.channel.web.component.ChannelCard;
+import br.com.youtubemanager.core.vaadin.MainLayout;
 import br.com.youtubemanager.core.vaadin.component.SearchButton;
 import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
 import com.vaadin.flow.component.Component;
@@ -21,7 +22,7 @@ import java.io.IOException;
 
 @AnonymousAllowed
 @PageTitle("Channel")
-@Route(value = "channel")
+@Route(value = "channel", layout = MainLayout.class)
 class ChannelView extends VerticalLayout {
 
 	private final TextField field;
