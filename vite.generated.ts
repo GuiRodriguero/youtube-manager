@@ -12,19 +12,19 @@ import * as net from 'net';
 import {processThemeResources} from './target/plugins/application-theme-plugin/theme-handle.js';
 import {rewriteCssUrls} from './target/plugins/theme-loader/theme-loader-utils.js';
 import {
-    addFunctionComponentSourceLocationBabel
+  addFunctionComponentSourceLocationBabel
 } from './target/plugins/react-function-location-plugin/react-function-location-plugin.js';
 import settings from './target/vaadin-dev-server-settings.json';
 import {
-    AssetInfo,
-    build,
-    ChunkInfo,
-    defineConfig,
-    InlineConfig,
-    mergeConfig,
-    OutputOptions,
-    PluginOption,
-    UserConfigFn
+  AssetInfo,
+  build,
+  ChunkInfo,
+  defineConfig,
+  InlineConfig,
+  mergeConfig,
+  OutputOptions,
+  PluginOption,
+  UserConfigFn
 } from 'vite';
 import {getManifest, type ManifestTransform} from 'workbox-build';
 
