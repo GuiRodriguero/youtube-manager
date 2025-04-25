@@ -12,7 +12,7 @@
     <artifactId>youtube-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>youtube-manager</name>
-    <description>Demo project for Spring Boot</description>
+    <description>YouTube Manager with Vaadin</description>
     <url/>
     <licenses>
         <license/>
@@ -38,13 +38,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
