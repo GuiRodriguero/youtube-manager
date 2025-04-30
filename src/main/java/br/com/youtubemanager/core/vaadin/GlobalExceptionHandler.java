@@ -1,5 +1,6 @@
 package br.com.youtubemanager.core.vaadin;
 
+import br.com.youtubemanager.core.YouTubeManagerException;
 import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.server.ErrorEvent;
@@ -28,11 +29,11 @@ public class GlobalExceptionHandler implements VaadinServiceInitListener {
 			}
 
 			String errorMessage = throwable.getMessage();
-			if (errorMessage == null || errorMessage.isEmpty()) {
+			if (errorMessage == null || errorMessage.isEmpty() || !(throwable instanceof YouTubeManagerException)) {
 				errorMessage = "An unexpected error occurred: " + throwable.getClass().getSimpleName();
 			}
 
-			YouTubeNotification.show(errorMessage, NotificationVariant.LUMO_CONTRAST);
+			YouTubeNotification.show(errorMessage, NotificationVariant.LUMO_ERROR);
 
 			System.err.println("Uncaught UI exception: ");
 			throwable.printStackTrace();

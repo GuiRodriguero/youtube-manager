@@ -2,6 +2,7 @@ package br.com.youtubemanager.channel.web;
 
 import br.com.youtubemanager.channel.ChannelDTO;
 import br.com.youtubemanager.channel.ChannelNotFoundException;
+import br.com.youtubemanager.core.YouTubeManagerException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ class ChannelService {
 				.getItems();
 		}
 		catch (IOException e) {
-			throw new RuntimeException(e);
+			throw new YouTubeManagerException();
 		}
 
 		if (CollectionUtils.isEmpty(channels)) {
