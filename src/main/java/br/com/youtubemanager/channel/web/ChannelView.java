@@ -1,6 +1,7 @@
 package br.com.youtubemanager.channel.web;
 
 import br.com.youtubemanager.channel.ChannelDTO;
+import br.com.youtubemanager.channel.ChannelService;
 import br.com.youtubemanager.channel.web.component.ChannelCard;
 import br.com.youtubemanager.core.vaadin.MainLayout;
 import br.com.youtubemanager.core.vaadin.component.SearchButton;

@@ -1,7 +1,5 @@
-package br.com.youtubemanager.channel.web;
+package br.com.youtubemanager.channel;
 
-import br.com.youtubemanager.channel.ChannelDTO;
-import br.com.youtubemanager.channel.ChannelNotFoundException;
 import br.com.youtubemanager.core.YouTubeManagerException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
@@ -14,7 +12,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-class ChannelService {
+public class ChannelService {
 
 	private final YouTube youtube;
 
