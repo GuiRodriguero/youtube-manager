@@ -1,6 +1,8 @@
 package br.com.youtubemanager.channel;
 
-public class ChannelNotFoundException extends RuntimeException {
+import br.com.youtubemanager.core.YouTubeManagerException;
+
+public class ChannelNotFoundException extends YouTubeManagerException {
 
 	public ChannelNotFoundException(String message) {
 		super(message);
