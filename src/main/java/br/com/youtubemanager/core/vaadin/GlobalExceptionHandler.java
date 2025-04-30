@@ -13,9 +13,9 @@ public class GlobalExceptionHandler implements VaadinServiceInitListener {
 
 	@Override
 	public void serviceInit(ServiceInitEvent event) {
-		event.getSource().addSessionInitListener(sessionInitEvent -> {
-			sessionInitEvent.getSession().setErrorHandler(new CustomErrorHandler());
-		});
+		event.getSource()
+			.addSessionInitListener(
+					sessionInitEvent -> sessionInitEvent.getSession().setErrorHandler(new CustomErrorHandler()));
 	}
 
 	private static class CustomErrorHandler implements ErrorHandler {

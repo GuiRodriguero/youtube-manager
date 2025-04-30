@@ -18,7 +18,7 @@ class ChannelService {
 	private final YouTube youtube;
 
 	public ChannelDTO findOne(String channelName) {
-		List<Channel> channels = null;
+		List<Channel> channels;
 		try {
 			channels = youtube.channels()
 				.list("snippet,contentDetails,statistics")
