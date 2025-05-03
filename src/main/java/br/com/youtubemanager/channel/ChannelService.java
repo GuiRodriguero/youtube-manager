@@ -1,7 +1,6 @@
-package br.com.youtubemanager.channel.web;
+package br.com.youtubemanager.channel;
 
-import br.com.youtubemanager.channel.ChannelDTO;
-import br.com.youtubemanager.channel.ChannelNotFoundException;
+import br.com.youtubemanager.core.YouTubeManagerException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
 import lombok.AllArgsConstructor;
@@ -13,16 +12,22 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-class ChannelService {
+public class ChannelService {
 
 	private final YouTube youtube;
 
-	public ChannelDTO findOne(String channelName) throws ChannelNotFoundException, IOException {
-		List<Channel> channels = youtube.channels()
-			.list("snippet,contentDetails,statistics")
-			.setForUsername(channelName)
-			.execute()
-			.getItems();
+	public ChannelDTO findOne(String channelName) {
+		List<Channel> channels;
+		try {
+			channels = youtube.channels()
+				.list("snippet,contentDetails,statistics")
+				.setForUsername(channelName)
+				.execute()
+				.getItems();
+		}
+		catch (IOException e) {
+			throw new YouTubeManagerException();
+		}
 
 		if (CollectionUtils.isEmpty(channels)) {
 			throw new ChannelNotFoundException("Channel not found");

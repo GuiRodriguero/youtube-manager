@@ -27,7 +27,8 @@ public class YouTubeConfiguration {
 				.build();
 		}
 		catch (GeneralSecurityException | IOException e) {
-			throw new RuntimeException("Failed to create YouTube service", e);
+			throw new YouTubeManagerException(
+					"Failed to initialize YouTube service. Please check your internet connection and try again.", e);
 		}
 	}
 
