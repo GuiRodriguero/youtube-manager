@@ -1,7 +1,7 @@
 package br.com.youtubemanager.core.vaadin;
 
-import br.com.youtubemanager.core.YouTubeManagerException;
 import br.com.youtubemanager.core.vaadin.component.YouTubeNotification;
+import br.com.youtubemanager.core.youtube.YouTubeManagerException;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.server.ErrorEvent;
 import com.vaadin.flow.server.ErrorHandler;

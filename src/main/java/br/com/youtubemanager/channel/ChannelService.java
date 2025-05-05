@@ -1,6 +1,6 @@
 package br.com.youtubemanager.channel;
 
-import br.com.youtubemanager.core.YouTubeManagerException;
+import br.com.youtubemanager.core.youtube.YouTubeManagerException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
 import lombok.AllArgsConstructor;

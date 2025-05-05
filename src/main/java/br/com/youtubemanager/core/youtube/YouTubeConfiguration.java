@@ -1,4 +1,4 @@
-package br.com.youtubemanager.core;
+package br.com.youtubemanager.core.youtube;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
