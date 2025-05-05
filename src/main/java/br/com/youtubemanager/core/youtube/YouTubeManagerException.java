@@ -1,4 +1,4 @@
-package br.com.youtubemanager.core;
+package br.com.youtubemanager.core.youtube;
 
 public class YouTubeManagerException extends RuntimeException {
 

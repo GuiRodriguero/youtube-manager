@@ -1,10 +1,9 @@
-package br.com.youtubemanager.channel;
+package br.com.youtubemanager.video;
 
 import br.com.youtubemanager.core.youtube.YouTubeManagerException;
 import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.Channel;
+import com.google.api.services.youtube.model.Video;
 import lombok.AllArgsConstructor;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -12,16 +11,16 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ChannelService {
+public class VideoService {
 
 	private final YouTube youtube;
 
-	public ChannelDTO findOne(String channelName) {
-		List<Channel> channels;
+	public List<VideoDTO> findMostPopularVideosByCountry(VideoCountry country) {
+		List<Video> videos;
 		try {
-			channels = youtube.channels()
+			videos = youtube.videos()
 				.list("snippet,contentDetails,statistics")
-				.setForUsername(channelName)
+				.setChart(country.name())
 				.execute()
 				.getItems();
 		}
@@ -29,11 +28,7 @@ public class ChannelService {
 			throw new YouTubeManagerException();
 		}
 
-		if (CollectionUtils.isEmpty(channels)) {
-			throw new ChannelNotFoundException("Channel not found");
-		}
-
-		return ChannelDTO.of(channels.getFirst());
+		return videos.stream().map(VideoDTO::of).toList();
 	}
 
 }
