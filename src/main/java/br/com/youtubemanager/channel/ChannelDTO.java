@@ -9,9 +9,10 @@ import lombok.Getter;
 
 import static br.com.youtubemanager.core.DateUtils.formatDate;
 import static br.com.youtubemanager.core.NumberUtils.formatNumber;
+import static lombok.AccessLevel.PRIVATE;
 
 @Getter
-@AllArgsConstructor(staticName = "of")
+@AllArgsConstructor(access = PRIVATE, staticName = "of")
 public class ChannelDTO {
 
 	private String title;
