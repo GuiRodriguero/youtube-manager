@@ -31,7 +31,7 @@ public class MainLayout extends AppLayout {
 		HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, themeToggle);
 		header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
 		header.expand(logo);
-		header.setWidthFull();
+		header.setWidthFull();//
 
 		addToNavbar(header);
 	}
